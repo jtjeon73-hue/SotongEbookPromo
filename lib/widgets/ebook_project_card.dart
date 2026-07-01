@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/ebook_project.dart';
 import '../theme/promo_theme.dart';
+import 'promo_badge.dart';
 
 class EbookProjectCard extends StatelessWidget {
   const EbookProjectCard({super.key, required this.project});
@@ -27,23 +28,9 @@ class EbookProjectCard extends StatelessWidget {
                   runSpacing: 6,
                   children: project.categories
                       .map(
-                        (cat) => Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 4,
-                          ),
-                          decoration: BoxDecoration(
-                            color: PromoColors.beige,
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Text(
-                            cat,
-                            style: const TextStyle(
-                              fontSize: 11,
-                              fontWeight: FontWeight.w600,
-                              color: PromoColors.charcoal,
-                            ),
-                          ),
+                        (cat) => PromoBadge(
+                          label: cat,
+                          style: PromoBadgeStyle.category,
                         ),
                       )
                       .toList(),
@@ -55,13 +42,20 @@ class EbookProjectCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _StatusBadge(label: project.statusBadge),
+                    PromoBadge(
+                      label: project.statusBadge,
+                      style: PromoBadgeStyle.status,
+                    ),
                     const SizedBox(width: 10),
-                    Text(
-                      '현재 단계: ${project.stage}',
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: PromoColors.textSecondary,
+                    Expanded(
+                      child: Text(
+                        '현재 단계: ${project.stage}',
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: PromoColors.textSecondary,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ],
@@ -153,32 +147,6 @@ class _BookCoverHeader extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class _StatusBadge extends StatelessWidget {
-  const _StatusBadge({required this.label});
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-      decoration: BoxDecoration(
-        color: PromoColors.gold.withValues(alpha: 0.2),
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: PromoColors.gold.withValues(alpha: 0.5)),
-      ),
-      child: Text(
-        label,
-        style: const TextStyle(
-          fontSize: 11,
-          fontWeight: FontWeight.w700,
-          color: PromoColors.goldLight,
-        ),
       ),
     );
   }

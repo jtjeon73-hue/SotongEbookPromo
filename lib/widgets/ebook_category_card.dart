@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/ebook_category.dart';
 import '../theme/promo_theme.dart';
+import 'promo_badge.dart';
 
 class EbookCategoryCard extends StatelessWidget {
   const EbookCategoryCard({super.key, required this.category});
@@ -31,9 +32,9 @@ class EbookCategoryCard extends StatelessWidget {
           Text(
             '출간 예정 · 확장 가능 영역',
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: PromoColors.gold,
+              color: PromoColors.badgeTextAlt,
               fontWeight: FontWeight.w600,
-              fontSize: 12,
+              fontSize: 13,
             ),
           ),
         ],
@@ -115,21 +116,7 @@ class FutureIdeaCard extends StatelessWidget {
               ).textTheme.titleMedium?.copyWith(fontSize: 15),
             ),
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-            decoration: BoxDecoration(
-              color: PromoColors.beige,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: const Text(
-              '준비 중',
-              style: TextStyle(
-                fontSize: 11,
-                fontWeight: FontWeight.w600,
-                color: PromoColors.textSecondary,
-              ),
-            ),
-          ),
+          PromoBadge(label: '준비 중', style: PromoBadgeStyle.accent),
         ],
       ),
     );
@@ -179,7 +166,7 @@ class BusinessConnectionCard extends StatelessWidget {
                       child: Text(
                         connection.to,
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: PromoColors.gold,
+                          color: PromoColors.badgeTextAlt,
                           fontWeight: FontWeight.w600,
                         ),
                       ),

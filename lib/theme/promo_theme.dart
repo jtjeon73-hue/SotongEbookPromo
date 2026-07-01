@@ -11,6 +11,13 @@ class PromoColors {
   static const Color textPrimary = Color(0xFF1A2332);
   static const Color textSecondary = Color(0xFF5A6577);
   static const Color cardSurface = Color(0xFFFAFAF8);
+
+  // 배지/칩 가독성용 (밝은 배경 + 진한 글자)
+  static const Color badgeBackground = Color(0xFFFFF8EA);
+  static const Color badgeBackgroundAlt = Color(0xFFF7E8C6);
+  static const Color badgeBackgroundHover = Color(0xFFF3D58A);
+  static const Color badgeText = Color(0xFF132033);
+  static const Color badgeTextAlt = Color(0xFF172235);
 }
 
 class PromoTheme {
@@ -124,12 +131,12 @@ class PromoTheme {
         ),
       ),
       chipTheme: ChipThemeData(
-        backgroundColor: PromoColors.white,
-        side: BorderSide(color: PromoColors.gold.withValues(alpha: 0.4)),
+        backgroundColor: PromoColors.badgeBackground,
+        side: BorderSide(color: PromoColors.gold.withValues(alpha: 0.5)),
         labelStyle: const TextStyle(
           fontSize: 13,
-          fontWeight: FontWeight.w500,
-          color: PromoColors.charcoal,
+          fontWeight: FontWeight.w600,
+          color: PromoColors.badgeText,
         ),
         padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 0),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),

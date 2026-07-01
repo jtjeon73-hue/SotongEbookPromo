@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../theme/promo_theme.dart';
+import 'promo_badge.dart';
 
 class HeroSection extends StatelessWidget {
   const HeroSection({
@@ -113,10 +114,15 @@ class HeroSection extends StatelessWidget {
                     ),
                     const SizedBox(height: 40),
                     Wrap(
-                      spacing: 8,
-                      runSpacing: 8,
+                      spacing: 10,
+                      runSpacing: 10,
                       children: badges
-                          .map((badge) => _HeroBadge(label: badge))
+                          .map(
+                            (badge) => PromoBadge(
+                              label: badge,
+                              style: PromoBadgeStyle.hero,
+                            ),
+                          )
                           .toList(),
                     ),
                   ],
@@ -133,43 +139,17 @@ class HeroSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
       decoration: BoxDecoration(
-        color: PromoColors.gold.withValues(alpha: 0.15),
+        color: PromoColors.badgeBackground.withValues(alpha: 0.9),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: PromoColors.gold.withValues(alpha: 0.4)),
+        border: Border.all(color: PromoColors.gold.withValues(alpha: 0.55)),
       ),
       child: const Text(
         'Sotong Ebook Lab',
         style: TextStyle(
-          color: PromoColors.goldLight,
+          color: PromoColors.badgeText,
           fontSize: 13,
           fontWeight: FontWeight.w600,
           letterSpacing: 0.8,
-        ),
-      ),
-    );
-  }
-}
-
-class _HeroBadge extends StatelessWidget {
-  const _HeroBadge({required this.label});
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-      decoration: BoxDecoration(
-        color: PromoColors.deepNavy.withValues(alpha: 0.45),
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: PromoColors.gold.withValues(alpha: 0.45)),
-      ),
-      child: Text(
-        label,
-        style: const TextStyle(
-          color: PromoColors.beige,
-          fontSize: 12,
-          fontWeight: FontWeight.w500,
         ),
       ),
     );
