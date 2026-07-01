@@ -116,21 +116,7 @@ class HeroSection extends StatelessWidget {
                       spacing: 8,
                       runSpacing: 8,
                       children: badges
-                          .map(
-                            (badge) => Chip(
-                              label: Text(badge),
-                              backgroundColor: PromoColors.white.withValues(
-                                alpha: 0.1,
-                              ),
-                              side: BorderSide(
-                                color: PromoColors.gold.withValues(alpha: 0.35),
-                              ),
-                              labelStyle: const TextStyle(
-                                color: PromoColors.beige,
-                                fontSize: 12,
-                              ),
-                            ),
-                          )
+                          .map((badge) => _HeroBadge(label: badge))
                           .toList(),
                     ),
                   ],
@@ -158,6 +144,32 @@ class HeroSection extends StatelessWidget {
           fontSize: 13,
           fontWeight: FontWeight.w600,
           letterSpacing: 0.8,
+        ),
+      ),
+    );
+  }
+}
+
+class _HeroBadge extends StatelessWidget {
+  const _HeroBadge({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+      decoration: BoxDecoration(
+        color: PromoColors.deepNavy.withValues(alpha: 0.45),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: PromoColors.gold.withValues(alpha: 0.45)),
+      ),
+      child: Text(
+        label,
+        style: const TextStyle(
+          color: PromoColors.beige,
+          fontSize: 12,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );
