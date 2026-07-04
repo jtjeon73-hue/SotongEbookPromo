@@ -100,6 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       _ResponsiveCardGrid(
                         itemCount: sampleEbooks.length,
                         minCardWidth: 360,
+                        variableHeight: true,
                         itemBuilder: (context, index) =>
                             EbookProjectCard(project: sampleEbooks[index]),
                       ),
@@ -208,11 +209,13 @@ class _ResponsiveCardGrid extends StatelessWidget {
     required this.itemCount,
     required this.minCardWidth,
     required this.itemBuilder,
+    this.variableHeight = false,
   });
 
   final int itemCount;
   final double minCardWidth;
   final Widget Function(BuildContext context, int index) itemBuilder;
+  final bool variableHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -230,6 +233,25 @@ class _ResponsiveCardGrid extends StatelessWidget {
                 padding: EdgeInsets.only(
                   bottom: index < itemCount - 1 ? 20 : 0,
                 ),
+                child: itemBuilder(context, index),
+              ),
+            ),
+          );
+        }
+
+        if (variableHeight) {
+          const spacing = 20.0;
+          final cardWidth =
+              (constraints.maxWidth - (crossAxisCount - 1) * spacing) /
+              crossAxisCount;
+
+          return Wrap(
+            spacing: spacing,
+            runSpacing: spacing,
+            children: List.generate(
+              itemCount,
+              (index) => SizedBox(
+                width: cardWidth,
                 child: itemBuilder(context, index),
               ),
             ),
