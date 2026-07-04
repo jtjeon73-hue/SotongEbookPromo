@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../data/sample_ebooks_data.dart';
+import '../data/promo_contact.dart';
 import '../theme/promo_theme.dart';
 
 class FooterSection extends StatelessWidget {
@@ -52,7 +52,7 @@ class FooterSection extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               SelectableText(
-                'Contact: $contactEmail',
+                'Contact: ${PromoContact.email} · 소통총관제 연동',
                 style: TextStyle(
                   color: PromoColors.beige.withValues(alpha: 0.7),
                   fontSize: 13,

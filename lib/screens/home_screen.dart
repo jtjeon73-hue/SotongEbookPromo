@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../data/sample_ebooks_data.dart';
 import '../widgets/contact_section.dart';
 import '../widgets/footer_section.dart';
+import '../widgets/sotong_control_hub_section.dart';
 import '../widgets/ebook_category_card.dart';
 import '../widgets/ebook_project_card.dart';
 import '../widgets/hero_section.dart';
@@ -22,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final ScrollController _scrollController = ScrollController();
   final GlobalKey _directionKey = GlobalKey();
   final GlobalKey _portfolioKey = GlobalKey();
+  final GlobalKey _hubKey = GlobalKey();
   final GlobalKey _contactKey = GlobalKey();
 
   @override
@@ -53,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 badges: heroBadges,
                 onViewDirection: () => _scrollTo(_directionKey),
                 onViewPortfolio: () => _scrollTo(_portfolioKey),
-                onContact: () => _scrollTo(_contactKey),
+                onContact: () => _scrollTo(_hubKey),
               ),
             ),
             SliverToBoxAdapter(
@@ -179,6 +181,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: KeyedSubtree(
+                key: _hubKey,
+                child: const SotongControlHubSection(),
               ),
             ),
             SliverToBoxAdapter(
