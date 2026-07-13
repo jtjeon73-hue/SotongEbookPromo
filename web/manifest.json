@@ -1,35 +1,35 @@
 {
-    "name": "소통웨어 전자책",
-    "short_name": "Sotong Ebook",
-    "start_url": ".",
-    "display": "standalone",
-    "background_color": "#0F1B2D",
-    "theme_color": "#0F1B2D",
-    "description": "소통웨어 전자책 개발 사업 총괄 홍보사이트",
-    "orientation": "portrait-primary",
-    "prefer_related_applications": false,
-    "icons": [
-        {
-            "src": "icons/Icon-192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "icons/Icon-512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        },
-        {
-            "src": "icons/Icon-maskable-192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "maskable"
-        },
-        {
-            "src": "icons/Icon-maskable-512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "maskable"
-        }
-    ]
+  "name": "소통웨어 전자책개발",
+  "short_name": "소통전자책",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#16233A",
+  "theme_color": "#7656D8",
+  "description": "소통웨어의 AI 전자책 기획, 제작, 출판 및 판매 프로젝트를 소개하는 공식 프로모 사이트",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/Icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/Icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/Icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/Icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
 }

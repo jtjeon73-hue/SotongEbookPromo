@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="20" x2="960" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3559C7"/>
+      <stop offset="50%" stop-color="#16233A"/>
+      <stop offset="100%" stop-color="#0F1B2D"/>
+    </linearGradient>
+    <linearGradient id="pageL" x1="260" y1="300" x2="470" y2="720" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFDF6"/>
+      <stop offset="100%" stop-color="#FFF8E7"/>
+    </linearGradient>
+    <linearGradient id="pageR" x1="554" y1="300" x2="764" y2="720" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFF8E7"/>
+      <stop offset="100%" stop-color="#F4E8C8"/>
+    </linearGradient>
+    <linearGradient id="sFill" x1="380" y1="320" x2="660" y2="700" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7656D8"/>
+      <stop offset="55%" stop-color="#3559C7"/>
+      <stop offset="100%" stop-color="#20B8A6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Full-bleed background for maskable safe cropping -->
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+
+  <!-- Core symbol scaled into safe zone (~72%) -->
+  <g transform="translate(512 512) scale(0.72) translate(-512 -512)">
+    <rect x="160" y="180" width="704" height="664" rx="48" fill="#0A1628" fill-opacity="0.25"/>
+
+    <!-- Open ebook -->
+    <path d="M230 300 C230 282 244 270 262 270 H470 C490 270 506 286 506 306 V710 C506 730 490 746 470 746 H262 C244 746 230 734 230 716 Z" fill="url(#pageL)"/>
+    <path d="M518 306 C518 286 534 270 554 270 H762 C780 270 794 282 794 300 V716 C794 734 780 746 762 746 H554 C534 746 518 730 518 710 Z" fill="url(#pageR)"/>
+    <rect x="500" y="262" width="24" height="492" rx="8" fill="#7656D8"/>
+    <rect x="506" y="274" width="12" height="468" rx="5" fill="#F2B84B" fill-opacity="0.9"/>
+
+    <g stroke="#D8C7A1" stroke-width="14" stroke-linecap="round" opacity="0.7">
+      <path d="M288 380 H430"/>
+      <path d="M288 430 H410"/>
+      <path d="M288 480 H420"/>
+      <path d="M594 380 H736"/>
+      <path d="M594 430 H716"/>
+      <path d="M594 480 H726"/>
+    </g>
+
+    <path fill="url(#sFill)" d="M640 350 C640 308 604 282 518 282 C412 282 372 326 372 380 C372 432 412 456 518 480 C612 502 660 528 660 602 C660 690 604 742 486 742 C394 742 346 706 330 648 L404 620 C416 656 446 684 486 684 C554 684 576 652 576 612 C576 570 546 550 464 530 C360 506 300 472 300 380 C300 290 370 226 518 226 C654 226 714 280 714 350 Z"/>
+
+    <g fill="#20B8A6">
+      <rect x="300" y="620" width="34" height="34" rx="8"/>
+      <rect x="346" y="620" width="34" height="34" rx="8" opacity="0.7"/>
+      <rect x="644" y="620" width="34" height="34" rx="8"/>
+      <rect x="690" y="620" width="34" height="34" rx="8" opacity="0.7"/>
+    </g>
+
+    <g fill="#F2B84B">
+      <circle cx="730" cy="310" r="16"/>
+      <path d="M730 266 L736 298 L768 304 L736 310 L730 342 L724 310 L692 304 L724 298 Z"/>
+    </g>
+    <circle cx="290" cy="320" r="11" fill="#20B8A6"/>
+  </g>
+</svg>
