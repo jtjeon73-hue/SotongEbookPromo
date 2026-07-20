@@ -45,160 +45,158 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SelectionArea(
-        child: CustomScrollView(
-          controller: _scrollController,
-          slivers: [
-            SliverToBoxAdapter(
-              child: HeroSection(
-                badges: heroBadges,
-                onViewDirection: () => _scrollTo(_directionKey),
-                onViewPortfolio: () => _scrollTo(_portfolioKey),
-                onContact: () => _scrollTo(_hubKey),
-              ),
+    return SelectionArea(
+      child: CustomScrollView(
+        controller: _scrollController,
+        slivers: [
+          SliverToBoxAdapter(
+            child: HeroSection(
+              badges: heroBadges,
+              onViewDirection: () => _scrollTo(_directionKey),
+              onViewPortfolio: () => _scrollTo(_portfolioKey),
+              onContact: () => _scrollTo(_hubKey),
             ),
-            SliverToBoxAdapter(
-              child: KeyedSubtree(
-                key: _directionKey,
-                child: SectionContainer(
-                  id: 'direction',
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SectionTitle(
-                        title: '소통웨어가 만드는 전자책의 방향',
-                        subtitle: '실무 경험과 디지털 사업을 연결하는 6가지 전자책 영역입니다.',
-                      ),
-                      const SizedBox(height: 40),
-                      _ResponsiveCardGrid(
-                        itemCount: businessDirections.length,
-                        minCardWidth: 320,
-                        itemBuilder: (context, index) => BusinessDirectionCard(
-                          direction: businessDirections[index],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: KeyedSubtree(
-                key: _portfolioKey,
-                child: SectionContainer(
-                  alternate: true,
-                  id: 'portfolio',
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SectionTitle(
-                        title: '출간 예정 전자책',
-                        subtitle: '기획 중·준비 중인 전자책 포트폴리오입니다.',
-                      ),
-                      const SizedBox(height: 40),
-                      _ResponsiveCardGrid(
-                        itemCount: sampleEbooks.length,
-                        minCardWidth: 360,
-                        variableHeight: true,
-                        itemBuilder: (context, index) =>
-                            EbookProjectCard(project: sampleEbooks[index]),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            SliverToBoxAdapter(
+          ),
+          SliverToBoxAdapter(
+            child: KeyedSubtree(
+              key: _directionKey,
               child: SectionContainer(
-                id: 'categories',
+                id: 'direction',
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SectionTitle(
-                      title: '확장 가능한 전자책 카테고리',
-                      subtitle: '앞으로 전자책이 계속 추가될 수 있는 영역입니다.',
+                      title: '소통웨어가 만드는 전자책의 방향',
+                      subtitle: '실무 경험과 디지털 사업을 연결하는 6가지 전자책 영역입니다.',
                     ),
                     const SizedBox(height: 40),
                     _ResponsiveCardGrid(
-                      itemCount: expandableCategories.length,
-                      minCardWidth: 200,
-                      itemBuilder: (context, index) => EbookCategoryCard(
-                        category: expandableCategories[index],
+                      itemCount: businessDirections.length,
+                      minCardWidth: 320,
+                      itemBuilder: (context, index) => BusinessDirectionCard(
+                        direction: businessDirections[index],
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-            SliverToBoxAdapter(
-              child: PublishingProcessSection(steps: publishingSteps),
-            ),
-            SliverToBoxAdapter(
-              child: SalesChannelSection(channels: salesChannels),
-            ),
-            SliverToBoxAdapter(
+          ),
+          SliverToBoxAdapter(
+            child: KeyedSubtree(
+              key: _portfolioKey,
               child: SectionContainer(
                 alternate: true,
-                id: 'business-connection',
+                id: 'portfolio',
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SectionTitle(
-                      title: '전자책과 소통웨어 사업 연결',
-                      subtitle: '소통웨어의 앱·콘텐츠·스토어와 전자책을 연결하는 구조입니다.',
+                      title: '출간 예정 전자책',
+                      subtitle: '기획 중·준비 중인 전자책 포트폴리오입니다.',
                     ),
                     const SizedBox(height: 40),
                     _ResponsiveCardGrid(
-                      itemCount: businessConnections.length,
-                      minCardWidth: 300,
-                      itemBuilder: (context, index) => BusinessConnectionCard(
-                        connection: businessConnections[index],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: MonetizationSection(items: monetizationItems),
-            ),
-            SliverToBoxAdapter(
-              child: SectionContainer(
-                id: 'future-ideas',
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SectionTitle(
-                      title: '계속 확장되는 전자책 아이디어',
-                      subtitle: '체크리스트, 템플릿, 가이드로 확장할 예정인 자료 아이디어입니다.',
-                    ),
-                    const SizedBox(height: 40),
-                    _ResponsiveCardGrid(
-                      itemCount: futureIdeas.length,
-                      minCardWidth: 280,
+                      itemCount: sampleEbooks.length,
+                      minCardWidth: 360,
+                      variableHeight: true,
                       itemBuilder: (context, index) =>
-                          FutureIdeaCard(idea: futureIdeas[index]),
+                          EbookProjectCard(project: sampleEbooks[index]),
                     ),
                   ],
                 ),
               ),
             ),
-            SliverToBoxAdapter(
-              child: KeyedSubtree(
-                key: _hubKey,
-                child: const SotongControlHubSection(),
+          ),
+          SliverToBoxAdapter(
+            child: SectionContainer(
+              id: 'categories',
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SectionTitle(
+                    title: '확장 가능한 전자책 카테고리',
+                    subtitle: '앞으로 전자책이 계속 추가될 수 있는 영역입니다.',
+                  ),
+                  const SizedBox(height: 40),
+                  _ResponsiveCardGrid(
+                    itemCount: expandableCategories.length,
+                    minCardWidth: 200,
+                    itemBuilder: (context, index) => EbookCategoryCard(
+                      category: expandableCategories[index],
+                    ),
+                  ),
+                ],
               ),
             ),
-            SliverToBoxAdapter(
-              child: KeyedSubtree(
-                key: _contactKey,
-                child: const ContactSection(),
+          ),
+          SliverToBoxAdapter(
+            child: PublishingProcessSection(steps: publishingSteps),
+          ),
+          SliverToBoxAdapter(
+            child: SalesChannelSection(channels: salesChannels),
+          ),
+          SliverToBoxAdapter(
+            child: SectionContainer(
+              alternate: true,
+              id: 'business-connection',
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SectionTitle(
+                    title: '전자책과 소통웨어 사업 연결',
+                    subtitle: '소통웨어의 앱·콘텐츠·스토어와 전자책을 연결하는 구조입니다.',
+                  ),
+                  const SizedBox(height: 40),
+                  _ResponsiveCardGrid(
+                    itemCount: businessConnections.length,
+                    minCardWidth: 300,
+                    itemBuilder: (context, index) => BusinessConnectionCard(
+                      connection: businessConnections[index],
+                    ),
+                  ),
+                ],
               ),
             ),
-            const SliverToBoxAdapter(child: FooterSection()),
-          ],
-        ),
+          ),
+          SliverToBoxAdapter(
+            child: MonetizationSection(items: monetizationItems),
+          ),
+          SliverToBoxAdapter(
+            child: SectionContainer(
+              id: 'future-ideas',
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SectionTitle(
+                    title: '계속 확장되는 전자책 아이디어',
+                    subtitle: '체크리스트, 템플릿, 가이드로 확장할 예정인 자료 아이디어입니다.',
+                  ),
+                  const SizedBox(height: 40),
+                  _ResponsiveCardGrid(
+                    itemCount: futureIdeas.length,
+                    minCardWidth: 280,
+                    itemBuilder: (context, index) =>
+                        FutureIdeaCard(idea: futureIdeas[index]),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: KeyedSubtree(
+              key: _hubKey,
+              child: const SotongControlHubSection(),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: KeyedSubtree(
+              key: _contactKey,
+              child: const ContactSection(),
+            ),
+          ),
+          const SliverToBoxAdapter(child: FooterSection()),
+        ],
       ),
     );
   }
